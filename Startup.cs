@@ -47,6 +47,7 @@ namespace ytWebGentile
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();
+
             });
         }
     }

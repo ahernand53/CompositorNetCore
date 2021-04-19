@@ -1,5 +1,3 @@
-using System;
-
 namespace ytWebGentile.Models
 {
     public class ErrorViewModel

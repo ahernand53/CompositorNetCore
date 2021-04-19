@@ -1,37 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using ytWebGentile.Models;
 
 namespace ytWebGentile.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        [ViewData]
+        public string CustomProperty { get; set; }
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public ViewResult Index()
         {
+            ViewData["property1"] = "Asdrubal Hernandez";
+            CustomProperty = "Custom value";
             return View();
         }
 
-        public IActionResult Privacy()
+        public ViewResult AboutUs()
         {
             return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

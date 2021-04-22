@@ -37,14 +37,23 @@ namespace ytWebGentile.Controllers
         }
 
         [HttpPost]
-        public ViewResult AddNewBook(Book book)
+        public IActionResult AddNewBook(Book book)
         {
-            _bookRepository.AddNewBook(book);
+            int id = _bookRepository.AddNewBook(book);
+
+            if (id > 0)
+            {
+                return RedirectToAction(nameof(AddNewBook), new { isSuccess = true, bookId = id });
+            }
+
             return View();
         }
 
-        public ViewResult AddNewBook()
+        public ViewResult AddNewBook(bool isSuccess = false, int bookId = 0)
         {
+            ViewBag.IsSuccess = isSuccess;
+            ViewBag.BookId = bookId;
+
             return View();
         }
 }

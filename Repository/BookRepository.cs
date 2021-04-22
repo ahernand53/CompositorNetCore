@@ -1,11 +1,40 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using ytWebGentile.Data;
 using ytWebGentile.Models;
 
 namespace ytWebGentile.Repository
 {
     public class BookRepository
     {
+
+        private readonly BookStoreContext _context = null;
+
+        public BookRepository(BookStoreContext context)
+        {
+            _context = context;
+        }
+
+        public int AddNewBook(Book model)
+        {
+            var newBook = new Books()
+            {
+                Author = model.Author,
+                Description = model.Description,
+                Title = model.Title,
+                TotalPages = model.TotalPages,
+                Category = model.Category,
+                Language = model.Language,
+                UpdatedOn = DateTime.UtcNow,
+                CreatedOn = DateTime.UtcNow,
+            };
+
+            _context.Books.Add(newBook);
+            _context.SaveChanges();
+
+            return newBook.Id;
+        }
         public List<Book> GetAllBooks()
         {
             return DataSource();

@@ -12,8 +12,7 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "TITLE_TEXT": "Hello World"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
     "ytWebGentile": {

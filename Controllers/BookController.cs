@@ -9,9 +9,9 @@ namespace ytWebGentile.Controllers
     {
         private readonly BookRepository _bookRepository = null;
 
-        public BookController()
+        public BookController(BookRepository bookRepository)
         {
-            _bookRepository = new BookRepository();
+            _bookRepository = bookRepository;
         }
 
         public ViewResult GetAllBooks()
@@ -35,5 +35,17 @@ namespace ytWebGentile.Controllers
         {
             return _bookRepository.SearchBook(bookName, authorName);
         }
-    }
+
+        [HttpPost]
+        public ViewResult AddNewBook(Book book)
+        {
+            _bookRepository.AddNewBook(book);
+            return View();
+        }
+
+        public ViewResult AddNewBook()
+        {
+            return View();
+        }
+}
 }

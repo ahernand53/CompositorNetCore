@@ -29,7 +29,7 @@
                     <a class="nav-link" asp-controller="Book" asp-action="GetAllBooks">Books</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" asp-controller="Book" asp-action="GetAllBooks" asp-protocol="http" asp-host="ytWebGentile.com">new link</a>
+                    <a class="nav-link" asp-controller="Book" asp-action="AddNewBook">Add new book</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -56,6 +56,7 @@
 <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
 @RenderSection("scripts", false)
 </body>
 </html>
